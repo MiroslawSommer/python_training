@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest
+import  unittest
 
 def is_alert_present(wd):
     try:
@@ -15,17 +14,18 @@ class test_add_contact(unittest.TestCase):
         self.wd = WebDriver()
         self.wd.implicitly_wait(60)
     
-    def test_test_add_contact(self):
+    def test_add_contact(self):
         success = True
         wd = self.wd
         wd.get("http://localhost/addressbook/")
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys("admin")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
-        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+        self.Login(wd)
+        self.add_new_contact(wd)
+        # logout
+        wd.find_element_by_link_text("Wyloguj się").click()
+        self.assertTrue(success)
+
+    def add_new_contact(self, wd):
+        # add_new_contact
         wd.find_element_by_link_text("nowy wpis").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -34,9 +34,18 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("lastname").clear()
         wd.find_element_by_name("lastname").send_keys("sdfsf")
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
-        wd.find_element_by_link_text("Wyloguj się").click()
-        self.assertTrue(success)
-    
+
+    def Login(self, wd, username="admin", password="secret"):
+        # login
+        wd.find_element_by_name("user").click()
+        wd.find_element_by_name("user").clear()
+        wd.find_element_by_name("user").send_keys(username)
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys(password)
+        wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+
+
     def tearDown(self):
         self.wd.quit()
 
