@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
+from contact import Contact
 import  unittest
 
 def is_alert_present(wd):
@@ -18,24 +19,28 @@ class test_add_contact(unittest.TestCase):
         success = True
         wd = self.wd
         wd.get("http://localhost/addressbook/")
-        self.Login(wd)
-        self.add_new_contact(wd)
+        self.Login(wd, username="admin", password="secret")
+        self.add_new_contact(wd, Contact(firstname="asdf", lastname="sdfsf"))
+        self.logout(success, wd)
+
+    def logout(self, success, wd):
         # logout
         wd.find_element_by_link_text("Wyloguj się").click()
         self.assertTrue(success)
 
-    def add_new_contact(self, wd):
+    def add_new_contact(self, wd, contact):
         # add_new_contact
         wd.find_element_by_link_text("nowy wpis").click()
+        #fill contact from
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys("asdf")
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys("sdfsf")
+        wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
-    def Login(self, wd, username="admin", password="secret"):
+    def Login(self, wd, username, password):
         # login
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()

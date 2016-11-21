@@ -23,7 +23,7 @@
       <file leaf-file-name="test_add_group.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_add_group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="176">
               <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
@@ -35,11 +35,21 @@
       <file leaf-file-name="test_add_contact.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_add_contact.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="42" selection-end-column="47" />
+            <state relative-caret-position="306">
+              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
               <folding>
                 <element signature="e#24#82#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/contact.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,6 +81,7 @@
       <list>
         <option value="$PROJECT_DIR$/group.py" />
         <option value="$PROJECT_DIR$/test_add_group.py" />
+        <option value="$PROJECT_DIR$/contact.py" />
         <option value="$PROJECT_DIR$/test_add_contact.py" />
       </list>
     </option>
@@ -367,11 +378,11 @@
     <history-entry file="Unittests_in_test_add_contact - 2016.11.21 at 09h 58m 44s.xml">
       <configuration name="Unittests in test_add_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_add_group - 2016.11.20 at 15h 25m 58s.xml">
-      <configuration name="Unittests in test_add_group" configurationId="tests" />
+    <history-entry file="Unittests_in_test_add_contact - 2016.11.21 at 10h 56m 58s.xml">
+      <configuration name="Unittests in test_add_contact" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_test_add_group - 2016.11.20 at 15h 27m 19s.xml">
-      <configuration name="Unittests in test_add_group" configurationId="tests" />
+    <history-entry file="Unittests_in_test_add_contact - 2016.11.21 at 11h 18m 33s.xml">
+      <configuration name="Unittests in test_add_contact" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_test_add_group - 2016.11.20 at 15h 28m 41s.xml">
       <configuration name="Unittests in test_add_group" configurationId="tests" />
@@ -535,9 +546,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/contact.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_add_group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="176">
           <caret line="33" column="29" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
             <element signature="e#24#82#0" expanded="true" />
@@ -547,8 +566,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_add_contact.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="59" selection-start-line="41" selection-start-column="59" selection-end-line="42" selection-end-column="47" />
+        <state relative-caret-position="306">
+          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
           <folding>
             <element signature="e#24#82#0" expanded="true" />
           </folding>
