@@ -12,9 +12,9 @@ def app(request):
     return fixture
 
 def test_add_contact(app):
-    app.login()
-    app.contact_creation(Contact( firstname="afadf", middlename="sfgsgf", lastname="sgfsgfdg"))
-    app.logout()
+    app.session_for_contact.login(username="admin", password="secret")
+    app.group_for_contact.contact_creation(Contact( firstname="afadf", middlename="sfgsgf", lastname="sgfsgfdg"))
+    app.session_for_contact.logout()
 
 
 
