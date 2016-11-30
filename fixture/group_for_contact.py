@@ -37,5 +37,6 @@ class GroupHelperContact:
         # select del contact
         wd.find_element_by_name("selected[]").click()
         # submit deletion
-        wd.find_element_by_name("button").click()
+        wd.find_element_by_xpath("//input[@value='Usuń']").click()
         wd.switch_to_alert().accept()
+
