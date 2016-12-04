@@ -6,7 +6,7 @@
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PackageRequirementsSettings">
-    <option name="requirementsPath" value="" />
+    <option name="requirementsPath" value="E:\programownie\GitHub\python_training\conftest.py" />
   </component>
   <component name="TestRunnerService">
     <option name="projectConfiguration" value="py.test" />
