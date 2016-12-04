@@ -1,8 +1,9 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 from fixture.group_for_contact import GroupHelperContact
 from fixture.session import SessionHelper
-from fixture.group_modify_contact import GroupHelperModifyContact
+from fixture.group_modify import GroupHelperModifyGroup
 from fixture.group import GroupHelper
+from fixture.modify_contact import GroupHelperModifyContact
 
 
 class Application:
@@ -13,7 +14,8 @@ class Application:
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.group_for_contact = GroupHelperContact(self)
-        self.group_modify_contact = GroupHelperModifyContact(self)
+        self.group_modify = GroupHelperModifyGroup(self)
+        self.modify_contact = GroupHelperModifyContact(self)
 
     def open_home_page(self):
         wd = self.wd

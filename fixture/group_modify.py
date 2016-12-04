@@ -1,10 +1,10 @@
 
-class GroupHelperModifyContact:
+class GroupHelperModifyGroup:
 
     def __init__(self, app):
         self.app = app
 
-    def modify_first_contact(self):
+    def modify_first_group(self):
         wd = self.app.wd
         wd.find_element_by_link_text("grupy").click()
         wd.find_element_by_name("selected[]").click()
