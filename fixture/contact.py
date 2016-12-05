@@ -1,5 +1,4 @@
-
-class GroupHelperContact:
+class ContactHelper:
 
     def __init__(self, app):
         self.app = app
@@ -38,3 +37,9 @@ class GroupHelperContact:
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Usuń']").click()
         wd.switch_to_alert().accept()
+
+
+
+
+
+
