@@ -10,36 +10,47 @@ class ContactHelper:
 
     def contact_creation(self, contact):
         wd = self.app.wd
-        # init group creation
+        # init contact creation
         wd.find_element_by_link_text("nowy wpis").click()
-        # fill group form
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys(contact.middlename)
-        wd.find_element_by_name("middlename").click()
-        wd.find_element_by_name("middlename").clear()
-        wd.find_element_by_name("middlename").send_keys()
-        wd.find_element_by_name("theform").click()
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        # submit group creation
+        self.fill_contact_form(contact)
+        # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
         self.return_to_contact_page()
 
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
+        self.change_field_value("contact_firstname", contact.firstname)
+        self.change_field_value("contact_middlename", contact.middlename)
+        self.change_field_value("contact_lastname", contact.lastname)
+
+    def change_field_value(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
+
     def delete_first_contact(self):
         wd = self.app.wd
-        # select del contact
-        wd.find_element_by_name("selected[]").click()
+        self.select_first_contact()
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Usuń']").click()
         wd.switch_to_alert().accept()
 
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
 
-
+    def modify_contact_name(self, new_contact_data):
+        wd = self.app.wd
+        self.select_first_contact()
+        # open modification form
+        wd.find_element_by_name("edit").click()
+        # fill contact from
+        self.fill_contact_form(new_contact_data)
+        # submit modification
+        wd.find_element_by_name("update").click()
+        self.return_to_contact_page()
 
 
 
