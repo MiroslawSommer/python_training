@@ -19,9 +19,9 @@ class ContactHelper:
 
     def fill_contact_form(self, contact):
         wd = self.app.wd
-        self.change_field_value("contact_firstname", contact.firstname)
-        self.change_field_value("contact_middlename", contact.middlename)
-        self.change_field_value("contact_lastname", contact.lastname)
+        self.change_field_value("firstname", contact.firstname)
+        self.change_field_value("middlename", contact.middlename)
+        self.change_field_value("lastname", contact.lastname)
 
     def change_field_value(self, field_name, text):
         wd = self.app.wd
@@ -32,10 +32,15 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_home_page()
         self.select_first_contact()
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Usuń']").click()
         wd.switch_to_alert().accept()
+
+    def open_home_page(self):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//div[@id='nav']//a[.='strona główna']").click()
 
     def select_first_contact(self):
         wd = self.app.wd
@@ -43,9 +48,10 @@ class ContactHelper:
 
     def modify_contact_name(self, new_contact_data):
         wd = self.app.wd
+        self.open_home_page()
         self.select_first_contact()
         # open modification form
-        wd.find_element_by_name("edit").click()
+        wd.find_element_by_xpath("//table[@id ='maintable']/tbody/tr[2]/td[8]/a/img").click()
         # fill contact from
         self.fill_contact_form(new_contact_data)
         # submit modification
