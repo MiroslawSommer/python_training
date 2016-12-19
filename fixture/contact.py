@@ -34,10 +34,17 @@ class ContactHelper:
             wd.find_element_by_name(field_name).clear()
             wd.find_element_by_name(field_name).send_keys(text)
 
-    def delete_first_contact(self):
+    def delete_first_by_group(self, index):
+        self.delete_contact_by_index(0)
+
+    def select_contact_by_index(self, index):
+        wd = self.app.wd
+        wd.find_elements_by_name("selected[]")[index].click()
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_home_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # submit deletion
         wd.find_element_by_xpath("//input[@value='Usuń']").click()
         wd.switch_to_alert().accept()
@@ -51,10 +58,13 @@ class ContactHelper:
         wd = self.app.wd
         wd.find_element_by_name("selected[]").click()
 
-    def modify_contact_name(self, new_contact_data):
+    def modify_first_by_group(self, index):
+        self.modify_contact_by_index(0)
+
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.open_home_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         # open modification form
         wd.find_element_by_xpath("//table[@id ='maintable']/tbody/tr[2]/td[8]/a/img").click()
         # fill contact from
