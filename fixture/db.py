@@ -1,4 +1,5 @@
 import mysql.connector
+
 from model.group import Group
 
 
