@@ -88,6 +88,19 @@ class ContactHelper:
         self.return_to_contact_page()
         self.contact_cache = None
 
+    def modify_contact_by_id(self, id, new_contact_data):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(id)
+        # open modification form
+        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        # fill contact from
+        self.fill_contact_form(new_contact_data)
+        # submit modification
+        wd.find_element_by_name("update").click()
+        self.return_to_contact_page()
+        self.contact_cache = None
+
     def count(self):
         wd = self.app.wd
         self.open_home_page()
