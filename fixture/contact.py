@@ -44,7 +44,8 @@ class ContactHelper:
 
     def select_contact_by_id(self, id):
         wd = self.app.wd
-        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+        row = wd.find_element_by_css_selector("input[value='%s']" % id)
+        return row
 
     def delete_contact_by_index(self, index):
         wd = self.app.wd
@@ -93,7 +94,11 @@ class ContactHelper:
         self.open_home_page()
         self.select_contact_by_id(id)
         # open modification form
-        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+#        wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
+        checkbox = wd.find_element_by_css_selector("input[value='%s']" % id)
+        row = checkbox.find_element_by_xpath("./../..")
+        cells = row.find_elements_by_tag_name("td")
+        cells[7].click()
         # fill contact from
         self.fill_contact_form(new_contact_data)
         # submit modification

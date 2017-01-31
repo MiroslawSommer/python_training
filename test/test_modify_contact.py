@@ -2,13 +2,13 @@ from model.contact import Contact
 import random
 
 
-def test_modify_first_contact(app, db, json_contacts):
-    if app.contact.count() == 0:
+def test_modify_first_contact(app, db):
+
+    if db.get_contact_list == 0:
         app.contact.contact_creation((Contact(firstname="test"))
     old_contacts = db.get_contact_list()
-    contact = json_contacts
     old_contact = random.choice(old_contacts)
-#    contact = Contact(firstname="New name")
+    contact = Contact(firstname="New name")
     contact.id = old_contact.id
     app.contact.modify_contact_by_id(old_contact.id, contact)
     new_contacts = db.get_contact_list()
